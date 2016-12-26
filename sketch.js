@@ -6,6 +6,8 @@ var projectsName = ["Jeux Avignon", "Déjà Vu?!", "Pénombre"];
 
 var firstRow = true;
 
+var draggableObjects = document.getElementsByClassName("draggable");
+
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
@@ -51,7 +53,6 @@ function setup() {
 function moveEverything() {
 
   // récupère tous les éléments draggable donc tout les éléments
-  var draggableObjects = document.getElementsByClassName("draggable");
 
   // leur attribue une nouvelle position aléatoire
   for (var i=0; i<draggableObjects.length; i++) {
@@ -69,9 +70,77 @@ function moveALittle() {
   }
 }
 
-function metEnExergue() {
-  
+function spotlight(e) {
+
+  // Si on survole une catégorie, on applique le spotlight sur cette catégorie + les projects qui sont relatedTo cette dernière
+
+  // on regarde si l'élément survolé a la class "category"
+if ((e.target.className).search("category") != -1)  {
+  // on lui applique le spotlight
+  // document.getElementById(e.target.id).style.color = "black";
+  // document.getElementById(e.target.id).style.borderBotton = "3px solid white";
+  document.getElementById(e.target.id).style.textTransform = "uppercase";
+
+  // on regarde pour chaque project si l'une des catégories relatives est celle survolée
+  for (var i=0; i<projects.length; i++) {
+    for (var j=0; j<projects[i].relatedTo.length; j++) {
+        // si c'est le cas on applique le spotlight
+        if ((projects[i].relatedTo[j]).search(e.target.textContent) != -1) {
+        // document.getElementById("project-" + i).style.color = "black";
+        // document.getElementById("project-" + i).style.borderBotton = "3px solid white";
+        document.getElementById("project-" + i).style.textTransform = "uppercase";
+        }
+    }
+  }
 }
+
+
+
+  // Si on survole un projet, on applique le spotlight sur ce projet + sur les catégories relatives
+
+    // on regarde si l'élément survolé a la class "project"
+if ((e.target.className).search("project") != -1)  {
+  // on lui applique le spotlight
+  // document.getElementById(e.target.id).style.color = "black";
+  // document.getElementById(e.target.id).style.borderBotton = "3px solid white";
+  document.getElementById(e.target.id).style.textTransform = "uppercase";
+
+  
+  // on cherche le numéro du projet correspondant à celui survolé
+  for (var k=0; k<projects.length; k++) {
+    if(projects[k].name == e.target.textContent) {
+
+      console.log("je corresponds | projectName " + "");
+
+      // on regarde combien de catégories sont associées à ce projet
+      for (var m=0; m<projects[k].relatedTo.length; m++) {
+        for (var n=0; n<draggableObjects.length; n++) {
+
+          // on compare le contenu des catégories dans le DOM avec les catégories associées au projet dans la class Project
+          if (draggableObjects[n].textContent == projects[k].relatedTo[m]) {
+            console.log("draggableObjects " + draggableObjects[n].textContent + " relatedTo " + projects[k].relatedTo[m]);
+            draggableObjects[n].style.textTransform = "uppercase";
+          }
+        }
+        
+      }
+    }
+  }
+}
+
+
+}
+
+function turnOffSpotlight() {
+  // enlève les attributs style ajoutés par spotlight
+  // on ne peut pas utiliser removeAttribute à cause des positions absolute en inline
+  for (var i=0; i<draggableObjects.length; i++) {
+    draggableObjects[i].style.color = "";
+    draggableObjects[i].style.background = "";
+    draggableObjects[i].style.textTransform= "";
+  }
+}
+
 
 function draw() {
 
@@ -91,6 +160,12 @@ function draggable() {
     $( document ).ready(function() {
     $( ".draggable" ).draggable();
   } );
+
+  // met un listener pour repérer quand on survole un élément
+  for (var i=0; i<draggableObjects.length; i++) {
+    document.addEventListener('mouseover', spotlight);
+    document.addEventListener('mouseout', turnOffSpotlight);
+  }
 
 }
 
