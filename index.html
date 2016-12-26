@@ -1,0 +1,101 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+
+	<!-- import data -->
+  	<script language="javascript" type="text/javascript" src="projects.js"></script>
+
+  	<script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+
+	<!-- jQuery UI draggable -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i" rel="stylesheet"> 
+
+
+  <style> 
+
+  #defaultCanvas0 {
+  }
+
+  html {
+    background-color: black;
+  }
+  body {
+  	padding: 0; 
+  	margin: 0;
+    overflow: hidden;
+  	} 
+
+    .category, .project {
+      position: absolute;
+      margin: 0;
+    }
+
+
+  .category {
+  	width: 160px;
+  	height: 30px;
+  	font-weight: 400;
+  	font-family: "Space Mono";
+  	padding: 10px;
+  	border: 3px solid white;
+    display: flex;
+    text-align: center;
+    color:white;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .category:hover {
+    font-style: italic;
+  }
+
+  .project {
+    width: 130px;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+    padding: 5px;
+    /*border: 2px solid cyan;*/
+    color: cyan;
+  }
+
+  #first {
+    display: none;
+  }
+
+  .draggable {
+    transition: 0.5s ease;
+  }
+
+/*  #content {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }*/
+
+  	</style>
+</head>
+
+<body>
+
+<!-- <div id="content"> -->
+  <div id="first"></div>
+<!-- </div> -->
+
+
+
+
+<button onclick="moveEverything();">Move Everything</button>
+<button onclick="moveALittle();">Move A Little Bit</button>
+
+</body>
+
+</html>
