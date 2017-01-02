@@ -43,6 +43,7 @@ function setup() {
     // projects[j].setup();
     projects[j].create();
     // projects[j].draw();
+    // projects[j].draw();
   }
 
  draggable();
@@ -77,7 +78,7 @@ setInterval(function() {
       }
 
       
-}, 1000);
+}, 2000);
     
 
 }
@@ -156,9 +157,11 @@ function draw() {
   background(0);
 
 for (var i=0; i<projects.length; i++) {
-    projects[i].draw();
-    projects[i].update();
-    // projects[i].update(projects[i].offsetLeft, projects[i].offsetTop);
+    // projects[i].draw();
+    // projects[i].update();
+    // console.log("project[i].offsetLeft" + document.getElementById('project-' + i).offsetLeft);
+    projects[i].update(document.getElementById('project-' + i).offsetLeft, document.getElementById('project-' + i).offsetTop);
+
 }
 // if (counter == 0) {
 //   // moveALittle();
@@ -213,26 +216,37 @@ function Project(_id, _name, _descr, _posX, _posY, _relatedTo) {
     var contentElement = document.getElementById("content");
     document.body.insertBefore(newBalise,firstElement); 
 
+    // définit le style du trait
+    fill(255);
+    stroke(255,255,255);
+    strokeWeight(0.2);
+
   }
 
-  Project.prototype.update = function() {
+  // trace les lignes
+  Project.prototype.update = function(_posX, _posY) {
 
-    // this.posX = _posX;
-    // this.posY = _posY;
+    this.posX = _posX;
+    this.posY = _posY;
 
     for (var i=0; i<this.relatedTo.length; i++) {
       for (var j=0; j<categoryName.length; j++) {
 
         if (this.relatedTo[i] == categories[j].name) {
           // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
-          ellipse(this.posNumberX, this.posNumberY, 3,3);
+          ellipse(this.posX, this.posY, 3,3);
           // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
+
+          // on récupère la position des catégories avec offsetLeft et offsetTop 
+          // cela permet d'avoir la position réelle même quand l'élément est draggé ou en transition
+          catPosX = document.getElementById("category-" + j).offsetLeft;
+          catPosY = document.getElementById("category-" + j).offsetTop;
 
           var c=document.getElementById("defaultCanvas0");
           var ctx=c.getContext("2d");
           ctx.beginPath();
-          ctx.moveTo(this.posNumberX,this.posNumberY);
-          ctx.lineTo(categories[j].posX,categories[j].posY);
+          ctx.moveTo(this.posX,this.posY);
+          ctx.lineTo(catPosX,catPosY);
           ctx.stroke();
           
         }
@@ -263,47 +277,6 @@ function Project(_id, _name, _descr, _posX, _posY, _relatedTo) {
     }
 
   
-  }
-
-// Trace les lignes entre les catégories et les projets
-  Project.prototype.draw = function() {
-
-    // récupère la position des éléments dans le DOM grâce à l'id qui leur a été donné
-    // car ils peuvent être draggués avec jquery-ui draggable
-      this.posX = document.getElementById('project-' + this.id).style.left;
-      this.posY = document.getElementById('project-' + this.id).style.top;
-
-
-    // les variables reçues par document.getElementById('project-' + this.id).style.left sont de type "150px"
-    // or p5 peut uniquement appliquer une valeur comme "150"
-    // donc on enlève le "px"
-    this.posNumberX = (this.posX).replace('px', '');
-    this.posNumberY = (this.posY).replace('px', '');
-
-    fill(255);
-    stroke(255,255,255);
-    strokeWeight(0.2);
-
-    for (var i=0; i<this.relatedTo.length; i++) {
-      for (var j=0; j<categoryName.length; j++) {
-
-        // On fait la même chose pour les catégories
-        categories[j].posX = document.getElementById('category-' + j).style.left;
-        categories[j].posY = document.getElementById('category-' + j).style.top;
-
-        categories[j].posX = (categories[j].posX).replace('px', '');
-        categories[j].posY = (categories[j].posY).replace('px', '');
-
-        if (this.relatedTo[i] == categories[j].name) {
-          // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
-          // ellipse(this.posNumberX, this.posNumberY, 3,3);
-          // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
-          
-        }
-      }
-    }
-
-
   }
 
 
