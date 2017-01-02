@@ -7,6 +7,7 @@ var projectsName = ["Jeux Avignon", "Déjà Vu?!", "Pénombre"];
 var firstRow = true;
 
 var draggableObjects = document.getElementsByClassName("draggable");
+var counter = 0;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -64,35 +65,47 @@ function moveEverything() {
 }
 
 
-function moveALittle() {
-  for (var i=0; i<projects.length; i++) {
-    projects[i].moveALittleBit();
-  }
+function mouseClicked() {
+
+setInterval(function() {
+
+  
+
+      for (var i=0; i<projects.length; i++) {
+        // console.log("hello");
+        projects[i].moveALittleBit(projects[i].posX, projects[i].posY);
+      }
+
+      
+}, 1000);
+    
+
 }
+
 
 function spotlight(e) {
 
   // Si on survole une catégorie, on applique le spotlight sur cette catégorie + les projects qui sont relatedTo cette dernière
 
-  // on regarde si l'élément survolé a la class "category"
-if ((e.target.className).search("category") != -1)  {
-  // on lui applique le spotlight
-  // document.getElementById(e.target.id).style.color = "black";
-  // document.getElementById(e.target.id).style.borderBotton = "3px solid white";
-  document.getElementById(e.target.id).style.textTransform = "uppercase";
+    // on regarde si l'élément survolé a la class "category"
+    if ((e.target.className).search("category") != -1)  {
+    // on lui applique le spotlight
+    // document.getElementById(e.target.id).style.color = "black";
+    // document.getElementById(e.target.id).style.borderBotton = "3px solid white";
+    document.getElementById(e.target.id).style.textTransform = "uppercase";
 
-  // on regarde pour chaque project si l'une des catégories relatives est celle survolée
-  for (var i=0; i<projects.length; i++) {
-    for (var j=0; j<projects[i].relatedTo.length; j++) {
-        // si c'est le cas on applique le spotlight
-        if ((projects[i].relatedTo[j]).search(e.target.textContent) != -1) {
-        // document.getElementById("project-" + i).style.color = "black";
-        // document.getElementById("project-" + i).style.borderBotton = "3px solid white";
-        document.getElementById("project-" + i).style.textTransform = "uppercase";
+    // on regarde pour chaque project si l'une des catégories relatives est celle survolée
+    for (var i=0; i<projects.length; i++) {
+      for (var j=0; j<projects[i].relatedTo.length; j++) {
+          // si c'est le cas on applique le spotlight
+          if ((projects[i].relatedTo[j]).search(e.target.textContent) != -1) {
+          // document.getElementById("project-" + i).style.color = "black";
+          // document.getElementById("project-" + i).style.borderBotton = "3px solid white";
+          document.getElementById("project-" + i).style.textTransform = "uppercase";
         }
+      }
     }
   }
-}
 
 
 
@@ -105,12 +118,9 @@ if ((e.target.className).search("project") != -1)  {
   // document.getElementById(e.target.id).style.borderBotton = "3px solid white";
   document.getElementById(e.target.id).style.textTransform = "uppercase";
 
-  
   // on cherche le numéro du projet correspondant à celui survolé
   for (var k=0; k<projects.length; k++) {
     if(projects[k].name == e.target.textContent) {
-
-      console.log("je corresponds | projectName " + "");
 
       // on regarde combien de catégories sont associées à ce projet
       for (var m=0; m<projects[k].relatedTo.length; m++) {
@@ -118,12 +128,11 @@ if ((e.target.className).search("project") != -1)  {
 
           // on compare le contenu des catégories dans le DOM avec les catégories associées au projet dans la class Project
           if (draggableObjects[n].textContent == projects[k].relatedTo[m]) {
-            console.log("draggableObjects " + draggableObjects[n].textContent + " relatedTo " + projects[k].relatedTo[m]);
             draggableObjects[n].style.textTransform = "uppercase";
           }
         }
-        
       }
+      
     }
   }
 }
@@ -148,9 +157,13 @@ function draw() {
 
 for (var i=0; i<projects.length; i++) {
     projects[i].draw();
-    projects[i].moveALittleBit();
+    projects[i].update();
+    // projects[i].update(projects[i].offsetLeft, projects[i].offsetTop);
 }
+// if (counter == 0) {
+//   // moveALittle();
 
+// }
 
 }
 
@@ -158,14 +171,14 @@ for (var i=0; i<projects.length; i++) {
 // rend les éléments draggable avec jquery ui
 function draggable() {
     $( document ).ready(function() {
-    $( ".draggable" ).draggable();
-  } );
+      $( ".draggable" ).draggable();
+    } );
 
-  // met un listener pour repérer quand on survole un élément
-  for (var i=0; i<draggableObjects.length; i++) {
-    document.addEventListener('mouseover', spotlight);
-    document.addEventListener('mouseout', turnOffSpotlight);
-  }
+      // met un listener pour repérer quand on survole un élément
+      for (var i=0; i<draggableObjects.length; i++) {
+      document.addEventListener('mouseover', spotlight);
+      document.addEventListener('mouseout', turnOffSpotlight);
+      }
 
 }
 
@@ -184,6 +197,8 @@ function Project(_id, _name, _descr, _posX, _posY, _relatedTo) {
   this.relatedTo = _relatedTo;
   this.id = _id;
 
+  var displacement = 23;
+
  
  // crée les éléments et les rajoutend au DOM
   Project.prototype.create = function() {
@@ -200,9 +215,54 @@ function Project(_id, _name, _descr, _posX, _posY, _relatedTo) {
 
   }
 
-  Project.prototype.moveALittleBit = function() {
-    // this.posNumberX+=random(-2,2);
-    // this.posNumberY+=random(-2,2);
+  Project.prototype.update = function() {
+
+    // this.posX = _posX;
+    // this.posY = _posY;
+
+    for (var i=0; i<this.relatedTo.length; i++) {
+      for (var j=0; j<categoryName.length; j++) {
+
+        if (this.relatedTo[i] == categories[j].name) {
+          // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
+          ellipse(this.posNumberX, this.posNumberY, 3,3);
+          // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
+
+          var c=document.getElementById("defaultCanvas0");
+          var ctx=c.getContext("2d");
+          ctx.beginPath();
+          ctx.moveTo(this.posNumberX,this.posNumberY);
+          ctx.lineTo(categories[j].posX,categories[j].posY);
+          ctx.stroke();
+          
+        }
+      }
+    }
+
+
+  }
+
+  Project.prototype.moveALittleBit = function(_posX, _posY) {
+
+    this.posX = _posX;
+    this.posY = _posY;
+
+    this.posX = parseInt(this.posX);
+    this.posY = parseInt(this.posY);
+
+    // console.log("this.posX " + this.posX);
+    // console.log("typeof" + typeof this.posX);
+
+    this.posX+=int(random(-displacement,displacement));
+    this.posY+=int(random(-displacement,displacement));
+
+    if (this.posX < 2000 && this.posY < 1000) {
+      // comme le style va direct en inline on ne met pas le "px"
+      document.getElementById('project-' + this.id).style.left = this.posX;
+      document.getElementById('project-' + this.id).style.top = this.posY;
+    }
+
+  
   }
 
 // Trace les lignes entre les catégories et les projets
@@ -236,8 +296,8 @@ function Project(_id, _name, _descr, _posX, _posY, _relatedTo) {
 
         if (this.relatedTo[i] == categories[j].name) {
           // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
-          ellipse(this.posNumberX, this.posNumberY, 3,3);
-          line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
+          // ellipse(this.posNumberX, this.posNumberY, 3,3);
+          // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
           
         }
       }
