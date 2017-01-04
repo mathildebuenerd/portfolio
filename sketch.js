@@ -18,8 +18,8 @@ function setup() {
     categories.push(new Category(
       i,
       categoryName[i],
-      int(random(1000)),
-      int(random(400))
+      int(random(windowWidth*0.2, windowWidth*0.8)), // correspond à la position, évite de placer trop sur les bords
+      int(random(windowHeight*0.2, windowHeight*0.8))
       ));
 
     // on affiche les catégories
@@ -28,6 +28,7 @@ function setup() {
 
 
   var jsonData = JSON.parse(data);
+
 
 
 // on affiche les projets
@@ -39,15 +40,14 @@ function setup() {
       jsonData.projects[j].year,
       jsonData.projects[j].shortDescription, 
       jsonData.projects[j].description,
-      int(random(1000)), 
-      int(random(400)),
+      int(random(windowWidth*0.2, windowWidth*0.8)), // correspond à la position, évite de placer trop sur les bords
+      int(random(windowHeight*0.2, windowHeight*0.8)),
       jsonData.projects[j].relatedTo,
       jsonData.projects[j].picture
       ));
-    // projects[j].setup();
+    
     projects[j].create();
-    // projects[j].draw();
-    // projects[j].draw();
+ 
   }
 
  draggable();
@@ -81,7 +81,7 @@ setInterval(function() {
       }
 
       
-}, 2000);
+}, 1500);
 }
 
 
@@ -212,36 +212,35 @@ function closeProject() {
   blocTexte.style.pointerEvents = "none";
   // imageProject.removeAttribute("style");
 
-
 }
 
 function displayProject(e) {
 
-// pour trouver le numéro du projet on slice son id qui est du type "project-x" pour ne récupérer que x
-var id = (e.target.id).slice(8);
+  // pour trouver le numéro du projet on slice son id qui est du type "project-x" pour ne récupérer que x
+  var id = (e.target.id).slice(8);
 
-console.log("id " + id);
-// id = parseInt(id);
+  console.log("id " + id);
+  // id = parseInt(id);
 
-var imageProject = document.getElementById("bloc-image");
-var blocTexte = document.getElementById("bloc-texte");
+  var imageProject = document.getElementById("bloc-image");
+  var blocTexte = document.getElementById("bloc-texte");
 
-console.log(projects[0].picture)
+  console.log(projects[0].picture)
 
-// ajoute l'image
-imageProject.style.backgroundImage = "url(img/" + projects[id].picture + ")";
-imageProject.style.pointerEvents = "auto";
-imageProject.style.opacity = 1;
+  // ajoute l'image
+  imageProject.style.backgroundImage = "url(img/" + projects[id].picture + ")";
+  imageProject.style.pointerEvents = "auto";
+  imageProject.style.opacity = 1;
 
-// affiche le texte et change le pointer-events pour que quand on clique dessus ou sélectionne
-// le texte ça ne lance pas la fonction closeProject
-blocTexte.style.opacity = 1;
-blocTexte.style.pointerEvents = "auto";
+  // affiche le texte et change le pointer-events pour que quand on clique dessus ou sélectionne
+  // le texte ça ne lance pas la fonction closeProject
+  blocTexte.style.opacity = 1;
+  blocTexte.style.pointerEvents = "auto";
 
-// ajoute le texte
-blocTexte.getElementsByTagName("h4")[0].innerHTML = projects[id].name;
-blocTexte.getElementsByTagName("p")[0].innerHTML = projects[id].year;
-blocTexte.getElementsByTagName("p")[1].innerHTML = projects[id].description;
+  // ajoute le texte
+  blocTexte.getElementsByTagName("h4")[0].innerHTML = projects[id].name;
+  blocTexte.getElementsByTagName("p")[0].innerHTML = projects[id].year;
+  blocTexte.getElementsByTagName("p")[1].innerHTML = projects[id].description;
 
 
 }
@@ -264,7 +263,7 @@ function Project(_id, _name, _year, _shortDescr, _descr, _posX, _posY, _relatedT
   this.id = _id;
   this.picture = _picture;
 
-  var displacement = 23;
+  var displacement = 25;
 
  
  // crée les éléments et les rajoutend au DOM
@@ -331,8 +330,15 @@ function Project(_id, _name, _year, _shortDescr, _descr, _posX, _posY, _relatedT
     // console.log("this.posX " + this.posX);
     // console.log("typeof" + typeof this.posX);
 
-    this.posX+=int(random(-displacement,displacement));
-    this.posY+=int(random(-displacement,displacement));
+    var facteurX = int(random(-displacement,displacement));
+    var facteurY = int(random(-displacement,displacement));
+
+    this.posX+= facteurX;
+    this.posY+= facteurY;
+
+    // on contraint la position pour que les éléments ne sortent pas du cadre
+    this.posX = constrain(this.posX, windowWidth*0.2, windowWidth*0.8);
+    this.posY = constrain(this.posY, windowHeight*0.2, windowHeight*0.8);
 
     if (this.posX < 2000 && this.posY < 1000) {
       // comme le style va direct en inline on ne met pas le "px"

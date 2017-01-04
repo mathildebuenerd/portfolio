@@ -120,15 +120,31 @@ h4 {
     color:#f0f;
   }
 
-  #lang {
+  #lang, #name {
     position: relative;
   }
 
   #lang::before {
-    content: "•";
+    content: "-";
     font-size:25px;
     color: #f0f;
   }
+
+  #lang::after {
+    content: "-";
+    font-size:25px;
+    color: #f0f;
+  }
+
+  #name h1 {
+    font-size: 20px;
+    display: inline-block;
+  }
+
+  #name { 
+    transform: rotate(-90deg) translate(-60px, -85px);
+    width: 200px;
+  }  
 
 /* Project displayed */
 
@@ -164,6 +180,7 @@ h4 {
     padding: 10px 30px;
     pointer-events: none;
     z-index: 100;
+    opacity: 0;
   }
 
   #bloc-texte p {
@@ -177,6 +194,7 @@ h4 {
     color: white;
 
   }
+
 
 /*  #content {
     position: absolute;
@@ -225,6 +243,12 @@ h4 {
   </a>
 </div>
 
+
+  <div id="name">
+    <h1>Mathilde Buenerd</h1>
+  </div>
+
+
 </div> <!-- links -->
 
 </div> <!-- bloc-links -->
@@ -246,9 +270,9 @@ h4 {
       <h4></h4>
       <p></p>
       <p></p>
-    </div>
-  
+  </div>
 </div>
+
 
 
 <!-- <div id="content"> -->
