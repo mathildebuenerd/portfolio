@@ -18,6 +18,11 @@
 
   <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Droid+Serif" rel="stylesheet"> 
+
+  <!-- Icons -->
+    <script src="https://use.fontawesome.com/64e75f8716.js"></script>
+
 
 
   <style> 
@@ -84,6 +89,91 @@ h4 {
     /*transition: 2s ease-in-out;*/
   }
 
+  /* Links */
+
+  #bloc-links {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 70px;
+    height: 100%;
+    background-color: black;
+    z-index: 99999;
+  }
+
+  #links {
+    /*justify-content: center;*/
+    /*background-color: black;*/
+    /*z-index: 99999;*/
+    width: 40px;
+    padding:10px;
+  }
+
+  #links i {
+    color: white;
+    margin: 7px 0;
+  }
+
+  #links i:hover {
+    color:#f0f;
+  }
+
+  #lang {
+    position: relative;
+  }
+
+  #lang::before {
+    content: "•";
+    font-size:25px;
+    color: #f0f;
+  }
+
+/* Project displayed */
+
+  #projectDisplayed {
+    /*display: none;*/
+   /* width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    z-index: 999;*/
+  }
+
+  #bloc-image {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    background-size: cover;
+    z-index: 99;
+    /*pour pouvoir quand même déplacer les éléments du canvas malgré le z-index élevé du bloc image*/
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s ease;
+  }
+
+  #bloc-texte {
+    font-family: "Space Mono", monospace;
+    max-width: 300px;
+    background-color: black;
+    position: fixed;
+    left: 160px;
+    top: 50px;
+    padding: 10px 30px;
+  }
+
+  #bloc-texte p {
+    font-size: 11px;
+  }
+
+  #bloc-texte h4 {
+    /*font-family: "Roboto";*/
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+  }
+
 /*  #content {
     position: absolute;
     top: 0;
@@ -94,6 +184,62 @@ h4 {
 </head>
 
 <body>
+
+<div id="bloc-links">
+
+<div id="links">
+
+<a href="https://twitter.com/mathildebuenerd" target="_blank">
+  <i class="fa fa-twitter fa-2x"></i>
+</a>
+
+<a href="https://github.com/mathildebuenerd" target="_blank">
+  <i class="fa fa-github fa-2x"></i>
+</a>
+
+<a href="https://vimeo.com/user35302474" target="_blank">
+  <i class="fa fa-vimeo fa-2x"></i>
+</a>
+
+<a href="http://www.mathildebuenerd.fr/blog/" target="_blank">
+  <i class="fa fa-wordpress fa-2x"></i>
+</a>
+
+<a href="https://www.linkedin.com/in/mathilde-buenerd-9b5585a1" target="_blank">
+  <i class="fa fa-linkedin fa-2x"></i>
+</a>
+
+
+<div id="lang">
+  <p>FR</p>
+  <p>ENG</p>
+</div>
+
+<div id="contact">
+  <a href="mailto:mathilde.buenerd@gmail.com">
+    <i class="fa fa-envelope-o fa-2x"></i>
+  </a>
+</div>
+
+</div> <!-- links -->
+
+</div> <!-- bloc-links -->
+
+
+<div id="projectDisplayed">
+  <div id="bloc-image">
+    <img src="">
+
+    <div id="bloc-texte">
+      <h4></h4>
+      <p></p>
+      <p></p>
+    </div>
+
+  </div>
+  
+</div>
+
 
 <!-- <div id="content"> -->
   <div id="first"></div>

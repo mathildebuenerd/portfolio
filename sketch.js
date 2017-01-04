@@ -7,6 +7,7 @@ var projectsName = ["Jeux Avignon", "Déjà Vu?!", "Pénombre"];
 var firstRow = true;
 
 var draggableObjects = document.getElementsByClassName("draggable");
+var itemProjects = document.getElementsByClassName("project");
 var counter = 0;
 
 function setup() {
@@ -35,10 +36,13 @@ function setup() {
     projects.push(new Project(
       j,
       jsonData.projects[j].name, 
+      jsonData.projects[j].year,
       jsonData.projects[j].shortDescription, 
+      jsonData.projects[j].description,
       int(random(1000)), 
       int(random(400)),
-      jsonData.projects[j].relatedTo
+      jsonData.projects[j].relatedTo,
+      jsonData.projects[j].picture
       ));
     // projects[j].setup();
     projects[j].create();
@@ -67,7 +71,6 @@ function moveEverything() {
 
 
 function mouseClicked() {
-
 setInterval(function() {
 
   
@@ -79,8 +82,6 @@ setInterval(function() {
 
       
 }, 2000);
-    
-
 }
 
 
@@ -183,22 +184,66 @@ function draggable() {
       document.addEventListener('mouseout', turnOffSpotlight);
       }
 
+      // met un listener pour repérer quand on clique un projet
+      // et ainsi afficher le contenu du projet
+      for (var j=0; j<itemProjects.length; j++) {
+      document.addEventListener('click', displayProject);
+      }
+
+
+      var image = document.getElementById("bloc-image");
+
+      for (var k=0; k<image.length; k++) {
+        document.addEventListener('click', closeProject);
+      }
+
+}
+
+function closeProjet() {
+  
+}
+
+function displayProject(e) {
+
+// pour trouver le numéro du projet on slice son id qui est du type "project-x" pour ne récupérer que x
+var id = (e.target.id).slice(8);
+// id = parseInt(id);
+
+var image = document.getElementById("bloc-image");
+var blocTexte = document.getElementById("bloc-texte");
+
+console.log(projects[0].picture)
+
+// ajoute l'image
+image.style.backgroundImage = "url(img/" + projects[id].picture + ")";
+image.style.pointerEvents = "auto";
+image.style.opacity = 1;
+
+// ajoute le texte
+blocTexte.getElementsByTagName("h4")[0].innerHTML = projects[id].name;
+blocTexte.getElementsByTagName("p")[0].innerHTML = projects[id].year;
+blocTexte.getElementsByTagName("p")[1].innerHTML = projects[id].description;
+
+
 }
 
 
 /*** Class Project() ***/
 
-function Project(_id, _name, _descr, _posX, _posY, _relatedTo) {
+function Project(_id, _name, _year, _shortDescr, _descr, _posX, _posY, _relatedTo, _picture) {
 
   // Project.prototype.setup = function() {
   this.name = _name;
-  this.descr = _descr;
+  this.year = _year;
+  this.shortDescription = _shortDescr;
+  this.description = _descr;
   this.posX = _posX;
   this.posY = _posY;
   // this.pictures = [];
   // this.relatedTo = [];
   this.relatedTo = _relatedTo;
   this.id = _id;
+  this.picture = _picture;
 
   var displacement = 23;
 

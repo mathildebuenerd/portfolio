@@ -5,7 +5,8 @@
             "shortDescription":"A love coach not like the others", 
             "year":"2016",
             "description":"An interactive game/fiction design object you can play with a boob-shaped joystick. Talk about manipulation and other things.",
-            "relatedTo":["Writing", "Rhetorics", "Game"]
+            "relatedTo":["Writing", "Rhetorics", "Game"],
+            "picture":"newpretender.jpg"
         },
 
         {
@@ -13,15 +14,17 @@
             "shortDescription":"A game about go out", 
             "year":"2016",
             "description":"This game invites th player to experiment what it is to be alone in a huge world, not knowing where you have to go.", 
-            "relatedTo":["Game", "Cartography"]
+            "relatedTo":["Game", "Cartography"],
+            "picture":"newpretender.jpg"
         },
 
         {   
             "name":"Bodmer Lab", 
-            "shortDescription":"A generative book based on Martin Bodmer' Faust collection", 
+            "shortDescription":"A generative book based on Martin Bodmer\'s Faust collection", 
             "year":"2016",
             "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
-            "relatedTo":["Writing", "Generative"]
+            "relatedTo":["Writing", "Generative"],
+            "picture":"newpretender.jpg"
         },
 
         {   
@@ -29,7 +32,8 @@
             "shortDescription":"Collection of poem books written by French politicians", 
             "year":"2015",
             "description":"This is a ", 
-            "relatedTo":["Writing", "Generative", "Rhetorics"]
+            "relatedTo":["Writing", "Generative", "Rhetorics"],
+            "picture":"newpretender.jpg"
         },
 
         {   
@@ -37,7 +41,8 @@
             "shortDescription":"A website that permit visualisation of", 
             "year":"2016",
             "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
-            "relatedTo":["Rhetorics", "Datavisualisation"]
+            "relatedTo":["Rhetorics", "Datavisualisation"],
+            "picture":"newpretender.jpg"
         },
 
         {   
@@ -45,7 +50,8 @@
             "shortDescription":"A web extension allowing you to identify the weasel words hidden in every speech or article.", 
             "year":"2016",
             "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
-            "relatedTo":["Datavisualisation", "Rhetorics"]
+            "relatedTo":["Datavisualisation", "Rhetorics"],
+            "picture":"newpretender.jpg"
         },
 
         {   
@@ -53,7 +59,8 @@
             "shortDescription":"A sensitive map about Marseille", 
             "year":"2016",
             "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
-            "relatedTo":["Datavisualisation", "Cartography"]
+            "relatedTo":["Datavisualisation", "Cartography"],
+            "picture":"newpretender.jpg"
         },
 
         {   
@@ -61,7 +68,8 @@
             "shortDescription":"Crazy games", 
             "year":"2016",
             "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
-            "relatedTo":["Game"]
+            "relatedTo":["Game"],
+            "picture":"newpretender.jpg"
         }
     ]
 }
