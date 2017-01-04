@@ -187,37 +187,56 @@ function draggable() {
       // met un listener pour repérer quand on clique un projet
       // et ainsi afficher le contenu du projet
       for (var j=0; j<itemProjects.length; j++) {
-      document.addEventListener('click', displayProject);
+        console.log("displayProject listener added");
+      itemProjects[j].addEventListener('click', displayProject);
       }
 
 
-      var image = document.getElementById("bloc-image");
+      var projectDisplayed = document.getElementById("bloc-image");
 
-      for (var k=0; k<image.length; k++) {
-        document.addEventListener('click', closeProject);
-      }
+      projectDisplayed.addEventListener('click', closeProject);
+      
 
 }
 
-function closeProjet() {
-  
+function closeProject() {
+
+  var imageProject = document.getElementById("bloc-image");
+  var blocTexte = document.getElementById("bloc-texte");
+
+  console.log("closeProjet");
+  // enlève les modifications faites avec displayProject()
+  imageProject.style.opacity = 0;
+  imageProject.style.pointerEvents = "none";
+  blocTexte.style.opacity = 0;
+  blocTexte.style.pointerEvents = "none";
+  // imageProject.removeAttribute("style");
+
+
 }
 
 function displayProject(e) {
 
 // pour trouver le numéro du projet on slice son id qui est du type "project-x" pour ne récupérer que x
 var id = (e.target.id).slice(8);
+
+console.log("id " + id);
 // id = parseInt(id);
 
-var image = document.getElementById("bloc-image");
+var imageProject = document.getElementById("bloc-image");
 var blocTexte = document.getElementById("bloc-texte");
 
 console.log(projects[0].picture)
 
 // ajoute l'image
-image.style.backgroundImage = "url(img/" + projects[id].picture + ")";
-image.style.pointerEvents = "auto";
-image.style.opacity = 1;
+imageProject.style.backgroundImage = "url(img/" + projects[id].picture + ")";
+imageProject.style.pointerEvents = "auto";
+imageProject.style.opacity = 1;
+
+// affiche le texte et change le pointer-events pour que quand on clique dessus ou sélectionne
+// le texte ça ne lance pas la fonction closeProject
+blocTexte.style.opacity = 1;
+blocTexte.style.pointerEvents = "auto";
 
 // ajoute le texte
 blocTexte.getElementsByTagName("h4")[0].innerHTML = projects[id].name;

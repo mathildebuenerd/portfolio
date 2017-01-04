@@ -146,6 +146,7 @@ h4 {
     position:absolute;
     top: 0;
     background-size: cover;
+    background-position: center;
     z-index: 99;
     /*pour pouvoir quand même déplacer les éléments du canvas malgré le z-index élevé du bloc image*/
     pointer-events: none;
@@ -161,6 +162,8 @@ h4 {
     left: 160px;
     top: 50px;
     padding: 10px 30px;
+    pointer-events: none;
+    z-index: 100;
   }
 
   #bloc-texte p {
@@ -172,6 +175,7 @@ h4 {
     font-size: 15px;
     font-weight: 400;
     color: white;
+
   }
 
 /*  #content {
@@ -230,13 +234,19 @@ h4 {
   <div id="bloc-image">
     <img src="">
 
-    <div id="bloc-texte">
+    <!-- <div id="bloc-texte">
+      <h4></h4>
+      <p></p>
+      <p></p>
+    </div> -->
+
+  </div>
+
+  <div id="bloc-texte">
       <h4></h4>
       <p></p>
       <p></p>
     </div>
-
-  </div>
   
 </div>
 
