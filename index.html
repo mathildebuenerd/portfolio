@@ -31,7 +31,7 @@
   }
 
   html {
-    background-color: black;
+    background-color: #000;
   }
   body {
   	padding: 0; 
@@ -54,30 +54,48 @@ h4 {
   color: cyan;
 }
   .category {
-  	width: 160px;
-  	height: 30px;
+  	width: auto;
+  	height: 27px;
   	font-weight: 400;
   	font-family: "Space Mono";
+    font-size: 16px;
   	padding: 10px;
-  	border: 3px solid white;
-    display: flex;
+    color: #fff;
+  	border: 3px solid #fff;
+    display: inline-block;
     text-align: center;
     /*color:white;*/
-    background-color: rgba(0,0,0,0.8);
+    background: linear-gradient(to bottom right, rgba(255,0,255,0.0), rgba(0,0,255,0.0));
+    transition: top 1s ease-in-out -0.4s,
+                left 1s ease-in-out -0.4s,
+                background 1s ease;
   }
 
   .category:hover {
     font-style: italic;
+   /*background: radial-gradient(#fff 20%, #f0f, #00f 70%);*/
+   background: linear-gradient(to bottom right, rgba(255,0,255,0.6), rgba(0,0,255,0.6));
   }
 
   .project {
-    width: 130px;
+    width: auto;
     font-family: "Space Mono", monospace;
     font-weight: 400;
     font-style: italic;
+    font-size: 15px;
     padding: 5px;
+    display: inline-flex;
     /*border: 2px solid cyan;*/
     color: cyan;
+    transition: top 2s ease-in-out -0.4s,
+                left 2s ease-in-out -0.4s,
+                color 1s ease-in-out,
+                background-color 1s ease-in-out;
+  }
+
+  .project:hover {
+    border-bottom: 3px solid #0ff;
+    padding-bottom: 5px;
   }
 
   #first {
@@ -85,7 +103,7 @@ h4 {
   }
 
   .draggable {
-    transition: 2s ease-in-out -0.4s;
+    /*transition: 2s ease-in-out -0.4s;*/
     /*transition: 2s ease-in-out;*/
   }
 
@@ -97,10 +115,11 @@ h4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 70px;
+    width: 65px;
     height: 100%;
     background-color: black;
     z-index: 99999;
+    border-right: 1px solid #333;
   }
 
   #links {
@@ -108,16 +127,25 @@ h4 {
     /*background-color: black;*/
     /*z-index: 99999;*/
     width: 40px;
-    padding:10px;
+    padding:10px 20px;
+
   }
 
   #links i {
-    color: white;
+    background: linear-gradient(to bottom right, rgba(150,150,150,1), rgba(150,150,150,1));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /*color: white;*/
     margin: 7px 0;
+    transition: 0.5s ease;
   }
 
   #links i:hover {
-    color:#f0f;
+    background: linear-gradient(to bottom right, rgba(255,0,255,1), rgba(0,0,255,1));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 
   #lang, #name {
@@ -137,12 +165,16 @@ h4 {
   }
 
   #name h1 {
-    font-size: 20px;
+    font-size: 15px;
     display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: lowercase;
   }
 
   #name { 
-    transform: rotate(-90deg) translate(-60px, -85px);
+    transform: rotate(-90deg) translate(-60px, -89px);
     width: 200px;
   }  
 
@@ -195,42 +227,124 @@ h4 {
 
   }
 
-
-/*  #content {
+/*Petite description qui s'affiche au survol*/
+  #shortDescr {
     position: absolute;
-    top: 0;
-    left: 0;
-  }*/
+    background-color: #f0f;
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 11px;
+    color: white;
+    padding:10px;
+    max-width: 200px;
+    z-index: 999;
+    mix-blend-mode:difference;
+    /*soft light*/
+  }
+
+  #halo {
+    position: absolute;
+    background: radial-gradient(#00f 20%, #f0f, #888 70%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    mix-blend-mode:soft-light;
+    z-index: 9999999;
+    pointer-events: none;
+  }
+
+
+
+/* Informations */
+
+#infos {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  position: absolute;
+  top: 50px;
+  left: 150px;
+  width: 450px;
+  background-color: black;
+  padding: 10px 10px 10px 20px;
+  border: 1px solid #333;
+  z-index: 9999;
+  visibility: hidden;
+}
+
+#education {
+  font-family: Roboto, arial;
+  font-size: 10.5px;
+  color: #aaa;
+}
+
+#education::before {
+  content: "-";
+  display: block;
+  margin-bottom: 10px;
+}
+
+#croix {
+  /*margin-top: -4px;*/
+  padding: 4px;
+  cursor: pointer;
+  float: right;
+  color: #f0f;
+}
+
+
+#lang {
+  font-family: "Roboto", arial, sans-serif;
+}
+
+#pre-img-0 {background: url(img/newpretender.jpg) no-repeat -9999px -9999px; }
+#pre-img-1 {background: url(img/penombre.jpg) no-repeat -9999px -9999px; }
+#pre-img-2 {background: url(img/ultimatefaust.jpg) no-repeat -9999px -9999px; }
+#pre-img-3 {background: url(img/weasel.jpg) no-repeat -9999px -9999px; }
+#pre-img-4 {background: url(img/lesbeauxdiscours.jpg) no-repeat -9999px -9999px; }
+#pre-img-5 {background: url(img/hoteldunord.jpg) no-repeat -9999px -9999px; }
+#pre-img-6 {background: url(img/frontdeseditions.jpg) no-repeat -9999px -9999px; }
+#pre-img-7 {background: url(img/blackbox.jpg) no-repeat -9999px -9999px; }
 
   	</style>
 </head>
 
 <body>
 
+<div id="pre-img">
+  <div id="pre-img-0"></div>
+  <div id="pre-img-1"></div>
+  <div id="pre-img-2"></div>
+  <div id="pre-img-3"></div>
+  <div id="pre-img-4"></div>
+  <div id="pre-img-5"></div>
+  <div id="pre-img-6"></div>
+  <div id="pre-img-7"></div>
+</div>
+
 <div id="bloc-links">
 
 <div id="links">
 
-<a href="https://twitter.com/mathildebuenerd" target="_blank">
+<!-- <div id="external-links"> -->
+<a class="external-links" href="https://twitter.com/mathildebuenerd" target="_blank">
   <i class="fa fa-twitter fa-2x"></i>
 </a>
 
-<a href="https://github.com/mathildebuenerd" target="_blank">
+<a class="external-links" href="https://github.com/mathildebuenerd" target="_blank">
   <i class="fa fa-github fa-2x"></i>
 </a>
 
-<a href="https://vimeo.com/user35302474" target="_blank">
+<a class="external-links" href="https://vimeo.com/user35302474" target="_blank">
   <i class="fa fa-vimeo fa-2x"></i>
 </a>
 
-<a href="http://www.mathildebuenerd.fr/blog/" target="_blank">
-  <i class="fa fa-wordpress fa-2x"></i>
+<a class="external-links" href="http://www.mathildebuenerd.fr/blog/" target="_blank">
+  <i class="fa fa-pencil fa-2x"></i>
 </a>
 
-<a href="https://www.linkedin.com/in/mathilde-buenerd-9b5585a1" target="_blank">
+<a class="external-links" href="https://www.linkedin.com/in/mathilde-buenerd-9b5585a1" target="_blank">
   <i class="fa fa-linkedin fa-2x"></i>
 </a>
-
+<!-- </div> -->
 
 <div id="lang">
   <p>FR</p>
@@ -241,7 +355,20 @@ h4 {
   <a href="mailto:mathilde.buenerd@gmail.com">
     <i class="fa fa-envelope-o fa-2x"></i>
   </a>
+
+<!-- CV -->
+  <a href="#">
+    <i class="fa fa-file-text-o fa-2x"></i>
+  </a>
+
+  <a onclick="openInfos();" href="#">
+    <i class="fa fa-question fa-2x"></i>
+  </a>
 </div>
+
+<script type="text/javascript">
+  
+</script>
 
 
   <div id="name">
@@ -273,17 +400,25 @@ h4 {
   </div>
 </div>
 
+<div id="shortDescr"></div>
 
+<div id="halo"></div>
+
+<div id="infos">
+  <p id="croix" onclick="closeInfos();">[x]</p>
+  <p>mathilde[dot]buenerd[at]gmail[dot]com</p>
+  <p>I am a graphic designer and artist, particularly interested in speculative design and the potential of digital technologies. I work as well with programming langages as with graphic design or writing. My practice embodies many different forms, like generative litterature, datavisualisation, games, web apps or more.
+<!--  The subjects I approach are verbal communication between humans and machines, how could the machines talk to us and how could we talk to them. --></p>
+<p id="education">2016-2018 | Master of Arts HES-SO in Design - or. Media Design - HEAD Geneva<br/>
+2014-2016 | Bachelor of Arts - Hypermedia workshop - Aix-en-Provence School of Fine Arts<br/>
+2012-2014 | Advanced Technician's Certificate in Graphic Design opt. Digital Media<br/>
+2009-2012 | Technological Baccalaureate in Applied Arts</p>
+</div>
 
 <!-- <div id="content"> -->
   <div id="first"></div>
 <!-- </div> -->
 
-
-
-
-<button onclick="moveEverything();">Move Everything</button>
-<button onclick="moveALittle();">Move A Little Bit</button>
 
 </body>
 

@@ -4,72 +4,72 @@
             "name":"New Pretender", 
             "shortDescription":"A love coach not like the others", 
             "year":"2016",
-            "description":"An interactive game/fiction design object you can play with a boob-shaped joystick. Talk about manipulation and other things.",
+            "description":"This project is something between speculative design and a game. The design of the controller is intended to be ironic, it gathers all things men are supposed to like : joysticks, leather and boobs. The purpose of this game is to enable people to experiment manipulation techniques (compliment, lie, promise) while playing in the litteral sense with people around them. <br/>This is also a critique of what I call « optimized talk », a talk where every word is written and prepared in advance in order to have a meaning, this awkward way of talking is used everyday by both womanizers or politicians. With New Pretender men can try their luck with ladies at the same time they experiment the limits of this way of talking : being out of touch with reality, not taking into account the context, the difficulty of improvising its own talk.",
             "relatedTo":["Writing", "Rhetorics", "Game"],
             "picture":"newpretender.jpg"
         },
 
         {
             "name":"Pénombre", 
-            "shortDescription":"A game about go out", 
+            "shortDescription":"A game where you have to survive in a hostile world with moving borders", 
             "year":"2016",
-            "description":"This game invites th player to experiment what it is to be alone in a huge world, not knowing where you have to go.", 
+            "description":"Le but du jeu est de survivre dans un univers hostile où l’environnement est imprévisible. Le joueur incarne un personnage sur un bateau qui avance dans un monde où les frontières s’ouvrent et se ferment sans cesse. S’il reste trop longtemps dans un passage étriqué ou s’il se fait coincer par le mouvement des terres il disparait.", 
             "relatedTo":["Game", "Cartography"],
-            "picture":"newpretender.jpg"
+            "picture":"penombre.jpg"
         },
 
         {   
-            "name":"Bodmer Lab", 
+            "name":"ultimateFaust", 
             "shortDescription":"A generative book based on Martin Bodmer\'s Faust collection", 
             "year":"2016",
-            "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
+            "description":"La collection Bodmer abrite plusieurs centaines d’éditions du Faust de Goethe. Puisant dans cette longue liste, ultimateFaust en reprend des éléments qui caractérisent chaque exemplaire : les titres, la pagination, les ornements, etc. <br/>Le mythe de Faust, cher à Martin Bodmer, raconte l’histoire d’un homme qui cherche à atteindre la connaissance universelle, au point de vendre son âme au Diable. De la même manière, notre intention est de réunir les richesses de chaque ouvrage en un seul volume. Ce projet représente la Biblioteca Bodmeriana dans sa variété et dans son ambition. ", 
             "relatedTo":["Writing", "Generative"],
-            "picture":"newpretender.jpg"
+            "picture":"ultimatefaust.jpg"
         },
 
         {   
             "name":"Front des Editions", 
             "shortDescription":"Collection of poem books written by French politicians", 
             "year":"2015",
-            "description":"This is a ", 
+            "description":"Cette maison d’édition fictive rassemble plusieurs petits recueils de poèmes. Ces poèmes ont été écrits par moi-même à partir de bribes assemblées extraites de discours de personnalités politiques françaises comme Marine Le Pen, Jean-Luc Mélenchon ou Nicolas Sarkozy.", 
             "relatedTo":["Writing", "Generative", "Rhetorics"],
-            "picture":"newpretender.jpg"
+            "picture":"frontdeseditions.jpg"
         },
 
         {   
             "name":"Les Beaux Discours", 
             "shortDescription":"A website that permit visualisation of", 
             "year":"2016",
-            "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
+            "description":"Ce projet consiste en une analyse de discours politique (en l’occurence de Marine Le Pen), à la suite de laquelle je définis des catégories comme les « expressions vides de sens » ou les « références apocalyptiques » ou encore les « affirmations hasardeuses ». A la suite de ça j’attribue une typographie et une animation à chaque classification. L’utilisateur peut donc parcourir ce discours à travers mon propre point de vue.", 
             "relatedTo":["Rhetorics", "Datavisualisation"],
-            "picture":"newpretender.jpg"
+            "picture":"lesbeauxdiscours.jpg"
         },
 
         {   
             "name":"findingweaselwords", 
             "shortDescription":"A web extension allowing you to identify the weasel words hidden in every speech or article.", 
             "year":"2016",
-            "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
+            "description":"findingweaselwords est une extension pour navigateur qui permet de mesurer la fiabilité d’un texte en fonction de la quantité de weasel word utilisée, et de donner un feedback visuel à l’internaute. Les weasel words ont d’habitude un rôle de liant, ils servent à « faire glisser » le propos plus facilement en évitant de rentrer dans des détails problématiques. Le principe est donc de créer une extension qui va rendre rugueux ces mots et expressions, faire en sorte que le lecteur bute dessus et ainsi les décèle facilement.", 
             "relatedTo":["Datavisualisation", "Rhetorics"],
-            "picture":"newpretender.jpg"
+            "picture":"weasel.jpg"
         },
 
         {   
             "name":"Hôtel du Nord", 
-            "shortDescription":"A sensitive map about Marseille", 
+            "shortDescription":"A sensitive physical map about Marseille", 
             "year":"2016",
-            "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
+            "description":"Upcoming description.", 
             "relatedTo":["Datavisualisation", "Cartography"],
-            "picture":"newpretender.jpg"
+            "picture":"hoteldunord.jpg"
         },
 
         {   
-            "name":"Eniarof", 
-            "shortDescription":"Crazy games", 
+            "name":"Eniarof #15 / Blackbox", 
+            "shortDescription":"A very weird game", 
             "year":"2016",
-            "description":"This is a book made with a lots of digitized old books that are in the Martin Bodmer huge collection.", 
+            "description":"Prenant racine dans l’univers de la domination et du sado-masochisme, ce jeu se joue en équipe de trois : deux « maîtres » et une « victime ». La « victime » se fait bander les yeux, attacher les mains avec une corde, et tient entre ses deux mains une boule-craie. Les deux maîtres, à la manière de marionnettistes, doivent faire écrire des mots à leur coéquipier sur un tableau noir en manipulant ses mains grâce aux cordes. Ce dernier, les yeux bandés, doit deviner le plus de mots en un temps imparti. Quand tous les mots ont été devinés, on refait une seconde manche mais cette fois-ci en dessinant les mots.", 
             "relatedTo":["Game"],
-            "picture":"newpretender.jpg"
+            "picture":"blackbox.jpg"
         }
     ]
 }

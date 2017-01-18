@@ -10,8 +10,17 @@ var draggableObjects = document.getElementsByClassName("draggable");
 var itemProjects = document.getElementsByClassName("project");
 var counter = 0;
 
+var isDescrActive = false;
+ var blocShortDescr;
+
+ var halo;
+
+
 function setup() {
+
   createCanvas(windowWidth,windowHeight);
+
+  halo = document.getElementById("halo");
 
   for (var i=0; i<categoryName.length; i++) {
     // on crée les catégories
@@ -28,8 +37,6 @@ function setup() {
 
 
   var jsonData = JSON.parse(data);
-
-
 
 // on affiche les projets
   for (var j=0; j<jsonData.projects.length; j++) {
@@ -51,6 +58,8 @@ function setup() {
   }
 
  draggable();
+
+ blocShortDescr = document.getElementById('shortDescr');
 
 }
 
@@ -102,8 +111,10 @@ function spotlight(e) {
           // si c'est le cas on applique le spotlight
           if ((projects[i].relatedTo[j]).search(e.target.textContent) != -1) {
           // document.getElementById("project-" + i).style.color = "black";
-          // document.getElementById("project-" + i).style.borderBotton = "3px solid white";
-          document.getElementById("project-" + i).style.textTransform = "uppercase";
+          document.getElementById("project-" + i).style.borderBottom = "3px solid #0ff";
+          // document.getElementById("project-" + i).style.backgroundColor = "#00f";
+          document.getElementById("project-" + i).style.color = "#0ff";
+
         }
       }
     }
@@ -130,7 +141,9 @@ if ((e.target.className).search("project") != -1)  {
 
           // on compare le contenu des catégories dans le DOM avec les catégories associées au projet dans la class Project
           if (draggableObjects[n].textContent == projects[k].relatedTo[m]) {
-            draggableObjects[n].style.textTransform = "uppercase";
+            draggableObjects[n].style.background = "linear-gradient(to bottom right, rgba(255,0,255,0.6), rgba(0,0,255,0.6))";
+            draggableObjects[n].style.color = "white";
+            // draggableObjects[n].style.borderColor = "black";
           }
         }
       }
@@ -147,15 +160,17 @@ function turnOffSpotlight() {
   // on ne peut pas utiliser removeAttribute à cause des positions absolute en inline
   for (var i=0; i<draggableObjects.length; i++) {
     draggableObjects[i].style.color = "";
+    draggableObjects[i].style.borderColor = "";
     draggableObjects[i].style.background = "";
     draggableObjects[i].style.textTransform= "";
+    draggableObjects[i].style.borderBottom = "";
   }
 }
 
 
 function draw() {
 
-  background(0);
+  background(0,0,0);
 
 for (var i=0; i<projects.length; i++) {
     // projects[i].draw();
@@ -164,10 +179,16 @@ for (var i=0; i<projects.length; i++) {
     projects[i].update(document.getElementById('project-' + i).offsetLeft, document.getElementById('project-' + i).offsetTop);
 
 }
-// if (counter == 0) {
-//   // moveALittle();
 
-// }
+halo.style.left = mouseX - 40;
+halo.style.top = mouseY - 40;
+
+if (isDescrActive) {
+  blocShortDescr.style.left = mouseX;
+  blocShortDescr.style.top = mouseY + 30;
+}
+
+
 
 }
 
@@ -187,8 +208,10 @@ function draggable() {
       // met un listener pour repérer quand on clique un projet
       // et ainsi afficher le contenu du projet
       for (var j=0; j<itemProjects.length; j++) {
-        console.log("displayProject listener added");
-      itemProjects[j].addEventListener('click', displayProject);
+        // console.log("displayProject listener added");
+        itemProjects[j].addEventListener('mouseover', displayShortDescr);
+        itemProjects[j].addEventListener('mouseout', hideShortDescr);
+        itemProjects[j].addEventListener('click', displayProject);
       }
 
 
@@ -199,12 +222,31 @@ function draggable() {
 
 }
 
+function hideShortDescr() {
+  isDescrActive = false;
+  blocShortDescr.style.display = "none";
+}
+
+function displayShortDescr(e) {
+
+  isDescrActive = true;
+
+   var id = (e.target.id).slice(8);
+   var blocShortDescr = document.getElementById('shortDescr');
+   blocShortDescr.style.display = "block";
+   blocShortDescr.innerHTML = projects[id].shortDescription;
+  
+}
+
 function closeProject() {
 
   var imageProject = document.getElementById("bloc-image");
   var blocTexte = document.getElementById("bloc-texte");
 
-  console.log("closeProjet");
+  // remet le halo
+  halo.style.visibility = "visible";
+
+  // console.log("closeProjet");
   // enlève les modifications faites avec displayProject()
   imageProject.style.opacity = 0;
   imageProject.style.pointerEvents = "none";
@@ -215,17 +257,24 @@ function closeProject() {
 }
 
 function displayProject(e) {
+  // on efface la petite description
+  isDescrActive = false;
+
+
 
   // pour trouver le numéro du projet on slice son id qui est du type "project-x" pour ne récupérer que x
   var id = (e.target.id).slice(8);
 
-  console.log("id " + id);
+  // console.log("id " + id);
   // id = parseInt(id);
 
   var imageProject = document.getElementById("bloc-image");
   var blocTexte = document.getElementById("bloc-texte");
 
-  console.log(projects[0].picture)
+  // console.log(projects[0].picture)
+
+  // enlève le halo
+  halo.style.visibility = "hidden";
 
   // ajoute l'image
   imageProject.style.backgroundImage = "url(img/" + projects[id].picture + ")";
@@ -378,3 +427,13 @@ function Category(_id, _name, _posX, _posY) {
 
 
 }
+
+
+
+  function openInfos() {
+    document.getElementById("infos").style.visibility = "visible";
+  }
+
+  function closeInfos() {
+    document.getElementById("infos").style.visibility = "hidden";
+  }
