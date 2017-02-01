@@ -1,0 +1,300 @@
+#defaultCanvas0 {
+  }
+
+  html {
+    background-color: #000;
+  }
+  body {
+  	padding: 0; 
+  	margin: 0;
+    overflow: hidden;
+    color:white;
+  	} 
+
+    .category, .project {
+      position: absolute;
+      margin: 0;
+      cursor: move;
+    }
+
+h3 {
+  color: white;
+}
+
+h4 {
+  color: cyan;
+}
+  .category {
+  	width: auto;
+  	height: 27px;
+  	font-weight: 400;
+  	font-family: "Space Mono";
+    font-size: 16px;
+  	padding: 10px;
+    color: #fff;
+  	border: 3px solid #fff;
+    display: inline-block;
+    text-align: center;
+    /*color:white;*/
+    background: linear-gradient(to bottom right, rgba(255,0,255,0.0), rgba(0,0,255,0.0));
+    transition: top 1s ease-in-out -0.4s,
+                left 1s ease-in-out -0.4s,
+                background 1s ease;
+  }
+
+  .category:hover {
+    font-style: italic;
+   /*background: radial-gradient(#fff 20%, #f0f, #00f 70%);*/
+   background: linear-gradient(to bottom right, rgba(255,0,255,0.6), rgba(0,0,255,0.6));
+  }
+
+  .project {
+    width: auto;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+    padding: 5px;
+    display: inline-flex;
+    /*border: 2px solid cyan;*/
+    color: cyan;
+    transition: top 2s ease-in-out -0.4s,
+                left 2s ease-in-out -0.4s,
+                color 1s ease-in-out,
+                background-color 1s ease-in-out;
+  }
+
+  .project:hover {
+    border-bottom: 3px solid #0ff;
+    padding-bottom: 5px;
+  }
+
+  #first {
+    display: none;
+  }
+
+  .draggable {
+    /*transition: 2s ease-in-out -0.4s;*/
+    /*transition: 2s ease-in-out;*/
+  }
+
+  /* Links */
+
+  #bloc-links {
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 65px;
+    height: 100%;
+    background-color: black;
+    z-index: 99999;
+    border-right: 1px solid #333;
+  }
+
+  #links {
+    /*justify-content: center;*/
+    /*background-color: black;*/
+    /*z-index: 99999;*/
+    width: 40px;
+    padding:10px 20px;
+
+  }
+
+  #links i {
+    background: linear-gradient(to bottom right, rgba(150,150,150,1), rgba(150,150,150,1));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    /*color: white;*/
+    margin: 7px 0;
+    transition: 0.5s ease;
+  }
+
+  #links i:hover {
+    background: linear-gradient(to bottom right, rgba(255,0,255,1), rgba(0,0,255,1));
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  #lang, #name {
+    position: relative;
+  }
+
+  #lang p {color: #bbb;}
+
+  #lang a {
+    color: white;
+    text-decoration: none;
+  }
+
+  #lang a:hover {
+    font-style: italic;
+  }
+
+  #lang::before {
+    content: "-";
+    font-size:25px;
+    color: #f0f;
+  }
+
+  #lang::after {
+    content: "-";
+    font-size:25px;
+    color: #f0f;
+  }
+
+  #name h1 {
+    font-size: 15px;
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: lowercase;
+  }
+
+  #name { 
+    transform: rotate(-90deg) translate(-60px, -89px);
+    width: 200px;
+  }  
+
+/* Project displayed */
+
+  #projectDisplayed {
+    /*display: none;*/
+   /* width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    z-index: 999;*/
+  }
+
+  #bloc-image {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 99;
+    /*pour pouvoir quand même déplacer les éléments du canvas malgré le z-index élevé du bloc image*/
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s ease;
+  }
+
+  #bloc-texte {
+    font-family: "Space Mono", monospace;
+    max-width: 300px;
+    background-color: black;
+    position: fixed;
+    left: 160px;
+    top: 50px;
+    padding: 10px 30px;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    cursor: move;
+  }
+
+  #bloc-texte p {
+    font-size: 11px;
+  }
+
+  #bloc-texte p a {
+    background-color: #00f;
+    padding: 5px 8px;
+    color: white;
+    display: inline-block;
+    margin-top: 8px;
+    text-decoration: none;
+    transition: 0.5s ease;
+  }
+
+  #bloc-texte p a:hover {background-color: #f0f;}
+
+  #bloc-texte h4 {
+    /*font-family: "Roboto";*/
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+
+  }
+
+/*Petite description qui s'affiche au survol*/
+  #shortDescr {
+    position: absolute;
+    background-color: #f0f;
+    font-family: "Roboto", arial, sans-serif;
+    font-size: 11px;
+    color: white;
+    padding:10px;
+    max-width: 200px;
+    z-index: 999;
+    mix-blend-mode:difference;
+    /*soft light*/
+  }
+
+  #halo {
+    position: absolute;
+    background: radial-gradient(#00f 20%, #f0f, #888 70%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    mix-blend-mode:soft-light;
+    z-index: 9999999;
+    pointer-events: none;
+  }
+
+
+
+/* Informations */
+
+#infos {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  position: absolute;
+  top: 50px;
+  left: 150px;
+  width: 450px;
+  background-color: black;
+  padding: 10px 10px 10px 20px;
+  border: 1px solid #333;
+  z-index: 9999;
+  visibility: hidden;
+}
+
+#education {
+  font-family: Roboto, arial;
+  font-size: 10.5px;
+  color: #aaa;
+}
+
+#education::before {
+  content: "-";
+  display: block;
+  margin-bottom: 10px;
+}
+
+#croix {
+  /*margin-top: -4px;*/
+  padding: 4px;
+  cursor: pointer;
+  float: right;
+  color: #f0f;
+}
+
+
+#lang {
+  font-family: "Roboto", arial, sans-serif;
+}
+
+#pre-img-0 {background: url(img/newpretender.jpg) no-repeat -9999px -9999px; }
+#pre-img-1 {background: url(img/penombre.jpg) no-repeat -9999px -9999px; }
+#pre-img-2 {background: url(img/ultimatefaust.jpg) no-repeat -9999px -9999px; }
+#pre-img-3 {background: url(img/weasel.jpg) no-repeat -9999px -9999px; }
+#pre-img-4 {background: url(img/lesbeauxdiscours.jpg) no-repeat -9999px -9999px; }
+#pre-img-5 {background: url(img/hoteldunord.jpg) no-repeat -9999px -9999px; }
+#pre-img-6 {background: url(img/frontdeseditions.jpg) no-repeat -9999px -9999px; }
+#pre-img-7 {background: url(img/blackbox.jpg) no-repeat -9999px -9999px; }

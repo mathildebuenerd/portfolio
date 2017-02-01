@@ -1,8 +1,6 @@
 var categories = [];
-var categoryName = ["Datavisualisation", "Game", "Generative", "Writing", "Rhetorics", "Cartography"];
 
 var projects = [];
-var projectsName = ["Jeux Avignon", "Déjà Vu?!", "Pénombre"];
 
 var firstRow = true;
 
@@ -11,7 +9,7 @@ var itemProjects = document.getElementsByClassName("project");
 var counter = 0;
 
 var isDescrActive = false;
- var blocShortDescr;
+var blocShortDescr;
 
  var halo;
 

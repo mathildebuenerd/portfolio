@@ -2,74 +2,83 @@
 "projects":[
         {
             "name":"New Pretender", 
-            "shortDescription":"A love coach not like the others", 
+            "shortDescription":"Un coach personnel qui sussure à l\'oreille de son interprète le discours à tenir pour séduire une femme.", 
             "year":"2016",
-            "description":"This project is something between speculative design and a game. The design of the controller is intended to be ironic, it gathers all things men are supposed to like : joysticks, leather and boobs. The purpose of this game is to enable people to experiment manipulation techniques (compliment, lie, promise) while playing in the litteral sense with people around them. <br/>This is also a critique of what I call « optimized talk », a talk where every word is written and prepared in advance in order to have a meaning, this awkward way of talking is used everyday by both womanizers or politicians. With New Pretender men can try their luck with ladies at the same time they experiment the limits of this way of talking : being out of touch with reality, not taking into account the context, the difficulty of improvising its own talk.",
-            "relatedTo":["Writing", "Rhetorics", "Game"],
+            "description":"New Pretender est un coach personnel qui sussure à l\'oreille de son interprète le discours à tenir pour séduire une femme. L\'homme, devenu un véritable orateur, peut expérimenter en temps réel les techniques de manipulation (complimenter, faire des gestes évocateurs, mentir, promettre...), en jouant au sens littéral (avec un joystick) avec la personne en face de lui. <br/> Réalisé à la HEAD - Genève dans le cadre d\'un cours dirigé par Camille Scherrer et Laura Couto Rosado. <br/> <a href=\'http://www.mathildebuenerd.fr/newpretender\' target=\'blank\'>Site web du projet</a> <br/> <a href=\'http://www.tilllate.com/de/story/new-pretender\' target=\'blank\'>Voir l\'article de Tilllate (ALL)</a>",
+            "relatedTo":["Ecriture", "Rhétorique", "Jeu"],
             "picture":"newpretender.jpg"
         },
 
         {
             "name":"Pénombre", 
-            "shortDescription":"A game where you have to survive in a hostile world with moving borders", 
+            "shortDescription":"Un jeu vidéo où le but est de survivre dans un univers hostile", 
             "year":"2016",
             "description":"Le but du jeu est de survivre dans un univers hostile où l’environnement est imprévisible. Le joueur incarne un personnage sur un bateau qui avance dans un monde où les frontières s’ouvrent et se ferment sans cesse. S’il reste trop longtemps dans un passage étriqué ou s’il se fait coincer par le mouvement des terres il disparait.", 
-            "relatedTo":["Game", "Cartography"],
+            "relatedTo":["Jeu", "Cartographie"],
             "picture":"penombre.jpg"
         },
 
         {   
             "name":"ultimateFaust", 
-            "shortDescription":"A generative book based on Martin Bodmer\'s Faust collection", 
+            "shortDescription":"Un livre généré à partir d\'éditions de Faust extraite de la collection Bodmer", 
             "year":"2016",
-            "description":"La collection Bodmer abrite plusieurs centaines d’éditions du Faust de Goethe. Puisant dans cette longue liste, ultimateFaust en reprend des éléments qui caractérisent chaque exemplaire : les titres, la pagination, les ornements, etc. <br/>Le mythe de Faust, cher à Martin Bodmer, raconte l’histoire d’un homme qui cherche à atteindre la connaissance universelle, au point de vendre son âme au Diable. De la même manière, notre intention est de réunir les richesses de chaque ouvrage en un seul volume. Ce projet représente la Biblioteca Bodmeriana dans sa variété et dans son ambition. ", 
-            "relatedTo":["Writing", "Generative"],
+            "description":"La collection Bodmer abrite plusieurs centaines d’éditions du Faust de Goethe. Puisant dans cette longue liste, ultimateFaust en reprend des éléments qui caractérisent chaque exemplaire : les titres, la pagination, les ornements, etc. <br/>Le mythe de Faust, cher à Martin Bodmer, raconte l’histoire d’un homme qui cherche à atteindre la connaissance universelle, au point de vendre son âme au Diable. De la même manière, notre intention est de réunir les richesses de chaque ouvrage en un seul volume. Ce projet représente la Biblioteca Bodmeriana dans sa variété et dans son ambition. <br/>Ce projet a été réalisé par Nicolas Baldran, David Héritier et moi-même, dans le cadre d\'une collaboration entre le BodmerLab la HEAD - Genève.", 
+            "relatedTo":["Ecriture", "Génératif"],
             "picture":"ultimatefaust.jpg"
         },
 
         {   
             "name":"Front des Editions", 
-            "shortDescription":"Collection of poem books written by French politicians", 
+            "shortDescription":"Collection de livre de poèmes écrits par des politiciens français", 
             "year":"2015",
             "description":"Cette maison d’édition fictive rassemble plusieurs petits recueils de poèmes. Ces poèmes ont été écrits par moi-même à partir de bribes assemblées extraites de discours de personnalités politiques françaises comme Marine Le Pen, Jean-Luc Mélenchon ou Nicolas Sarkozy.", 
-            "relatedTo":["Writing", "Generative", "Rhetorics"],
+            "relatedTo":["Ecriture", "Génératif", "Rhétorique"],
             "picture":"frontdeseditions.jpg"
         },
 
         {   
             "name":"Les Beaux Discours", 
-            "shortDescription":"A website that permit visualisation of", 
+            "shortDescription":"Analyse visuelle et subjective de discours politiques", 
             "year":"2016",
-            "description":"Ce projet consiste en une analyse de discours politique (en l’occurence de Marine Le Pen), à la suite de laquelle je définis des catégories comme les « expressions vides de sens » ou les « références apocalyptiques » ou encore les « affirmations hasardeuses ». A la suite de ça j’attribue une typographie et une animation à chaque classification. L’utilisateur peut donc parcourir ce discours à travers mon propre point de vue.", 
-            "relatedTo":["Rhetorics", "Datavisualisation"],
+            "description":"Ce projet consiste en une analyse de discours politique (en l’occurence de Marine Le Pen), à la suite de laquelle je définis des catégories comme les « expressions vides de sens » ou les « références apocalyptiques » ou encore les « affirmations hasardeuses ». A la suite de ça j’attribue une typographie et une animation à chaque classification. L’utilisateur peut donc parcourir ce discours à travers mon propre point de vue. <br/> <a href=\'http://www.mathildebuenerd.fr/BeauxDiscours/\' target=\'blank\' >Site du projet</a>", 
+            "relatedTo":["Rhétorique", "Datavisualisation"],
             "picture":"lesbeauxdiscours.jpg"
         },
 
         {   
             "name":"findingweaselwords", 
-            "shortDescription":"A web extension allowing you to identify the weasel words hidden in every speech or article.", 
+            "shortDescription":"Une extension pour trouver les mots trompeurs dans un article ou un discours politique", 
             "year":"2016",
-            "description":"findingweaselwords est une extension pour navigateur qui permet de mesurer la fiabilité d’un texte en fonction de la quantité de weasel word utilisée, et de donner un feedback visuel à l’internaute. Les weasel words ont d’habitude un rôle de liant, ils servent à « faire glisser » le propos plus facilement en évitant de rentrer dans des détails problématiques. Le principe est donc de créer une extension qui va rendre rugueux ces mots et expressions, faire en sorte que le lecteur bute dessus et ainsi les décèle facilement.", 
-            "relatedTo":["Datavisualisation", "Rhetorics"],
+            "description":"findingweaselwords est une extension pour navigateur qui permet de mesurer la fiabilité d’un texte en fonction de la quantité de weasel word utilisée, et de donner un feedback visuel à l’internaute. Les weasel words ont d’habitude un rôle de liant, ils servent à « faire glisser » le propos plus facilement en évitant de rentrer dans des détails problématiques. Le principe est donc de créer une extension qui va rendre rugueux ces mots et expressions, faire en sorte que le lecteur bute dessus et ainsi les décèle facilement. <br/> <a href=\'http://alternative.mathildebuenerd.fr/weaselwords/\' target=\'blank\' >Website of the project</a>", 
+            "relatedTo":["Datavisualisation", "Rhétorique"],
             "picture":"weasel.jpg"
         },
 
         {   
             "name":"Hôtel du Nord", 
-            "shortDescription":"A sensitive physical map about Marseille", 
+            "shortDescription":"Une cartographie sensible de Marseille", 
             "year":"2016",
-            "description":"Upcoming description.", 
-            "relatedTo":["Datavisualisation", "Cartography"],
+            "description":"Cette carte en papier a été construite à la suite d\'une exploration des quartiers nords de Marseille (Saint Anroine, l\'Estaque...). Dans le cadre d\'un workshop, nous avons tourné des vidéos, réalisé des interviews, fait des prises de sons dans l\'objectif de documenter ces quartiers délaissés de la ville et mettre en valeur leur patrimoine historique mais aussi humain. <br/> A la suite de cette exploration j\'ai réalisé une carte subjective de Marseille : en fonction des émotions ressenties (plutôt positives ou plutôt négatives), la carte est jallonée de collines ou de creux. Ici on ne représente pas des données quantitatives sur un plan spatial, mais bien des données qualitatives (émotions) sur une échelle temporelle, un point ne correspondant pas à un lieu mais à un moment.", 
+            "relatedTo":["Datavisualisation", "Cartographie"],
             "picture":"hoteldunord.jpg"
         },
 
         {   
             "name":"Eniarof #15 / Blackbox", 
-            "shortDescription":"A very weird game", 
+            "shortDescription":"Un jeu plutôt étrange", 
             "year":"2016",
-            "description":"Prenant racine dans l’univers de la domination et du sado-masochisme, ce jeu se joue en équipe de trois : deux « maîtres » et une « victime ». La « victime » se fait bander les yeux, attacher les mains avec une corde, et tient entre ses deux mains une boule-craie. Les deux maîtres, à la manière de marionnettistes, doivent faire écrire des mots à leur coéquipier sur un tableau noir en manipulant ses mains grâce aux cordes. Ce dernier, les yeux bandés, doit deviner le plus de mots en un temps imparti. Quand tous les mots ont été devinés, on refait une seconde manche mais cette fois-ci en dessinant les mots.", 
-            "relatedTo":["Game"],
+            "description":"Prenant racine dans l’univers de la domination et du sado-masochisme, ce jeu se joue en équipe de trois : deux « maîtres » et une « victime ». La « victime » se fait bander les yeux, attacher les mains avec une corde, et tient entre ses deux mains une boule-craie. Les deux maîtres, à la manière de marionnettistes, doivent faire écrire des mots à leur coéquipier sur un tableau noir en manipulant ses mains grâce aux cordes. Ce dernier, les yeux bandés, doit deviner le plus de mots en un temps imparti. Quand tous les mots ont été devinés, on refait une seconde manche mais cette fois-ci en dessinant les mots. <br/> Réalisé en groupe durant un workshop dirigé par Sophie Daste et Antonin Fourneau (ENSAD) et Guillaume Stagnaro (ESAAIX). Exposés par la suite dans l\'exposition Frankenstein Media à la médiathèque Ceccano en Avignon.", 
+            "relatedTo":["Jeu"],
             "picture":"blackbox.jpg"
+        },
+
+        {   
+            "name":"ASB-BAG", 
+            "shortDescription":"Un sac-à-dos anti-impolitesse pour les enfants", 
+            "year":"2016",
+            "description":"<i>« Séries TV brutales, jeux vidéos violents, ou même camarades de classe vulgaires, vos enfants sont confrontés au quotidien aux incivilités et à la violence verbale. Dans notre monde actuel où la criminalité ne cesse d’augmenter, personne n’est à l’abri de voir son enfant mal tourner. En imitant le monde qui les entoure, les paisibles enfants d’aujourd’hui peuvent devenir les criminels de demain.»</i> <br/>Sorte de bracelet électronique pour pré-délinquants (car tous les enfants sont des délinquants potentiels). Le principe est simple : chaque fois que l’enfant dit un gros mot, un petit moteur vibre derrière sa nuque. ASB-BAG est une caricature de ces objets connectés qui poussent comme des champignons, se vantant tous de faire du monde un meilleur endroit (« make the world a better place »). <br/> Réalisé à la HEAD - Genève durant un workshop dirigé par Dominic Robson et Félicien Goguey.", 
+            "relatedTo":["Datavisualisation", "Rhétorique"],
+            "picture":"asbbag.jpg"
         }
     ]
 }
