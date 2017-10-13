@@ -92,6 +92,7 @@ setInterval(function() {
 }
 
 
+// permet d'identifier les projets associés à une catégorie et les catégories associées à un proje
 function spotlight(e) {
 
   // Si on survole une catégorie, on applique le spotlight sur cette catégorie + les projects qui sont relatedTo cette dernière
@@ -170,21 +171,21 @@ function draw() {
 
   background(0,0,0);
 
-for (var i=0; i<projects.length; i++) {
-    // projects[i].draw();
-    // projects[i].update();
-    // console.log("project[i].offsetLeft" + document.getElementById('project-' + i).offsetLeft);
-    projects[i].update(document.getElementById('project-' + i).offsetLeft, document.getElementById('project-' + i).offsetTop);
+	for (var i=0; i<projects.length; i++) {
+	    // projects[i].draw();
+	    // projects[i].update();
+	    // console.log("project[i].offsetLeft" + document.getElementById('project-' + i).offsetLeft);
+	    projects[i].update(document.getElementById('project-' + i).offsetLeft, document.getElementById('project-' + i).offsetTop);
 
-}
+	}
 
-halo.style.left = mouseX - 40;
-halo.style.top = mouseY - 40;
+	halo.style.left = mouseX - 40;
+	halo.style.top = mouseY - 40;
 
-if (isDescrActive) {
-  blocShortDescr.style.left = mouseX;
-  blocShortDescr.style.top = mouseY + 30;
-}
+	if (isDescrActive) {
+	  blocShortDescr.style.left = mouseX;
+	  blocShortDescr.style.top = mouseY + 30;
+	}
 
 
 
@@ -214,7 +215,6 @@ function draggable() {
 
 
       var projectDisplayed = document.getElementById("bloc-image");
-
       projectDisplayed.addEventListener('click', closeProject);
       
 
@@ -420,6 +420,12 @@ function Category(_id, _name, _posX, _posY) {
     var firstElement = document.getElementById("first");
     var contentElement = document.getElementById("content");
     document.body.insertBefore(newBalise,firstElement);
+  }
+
+  Category.prototype.constrainCategory = function() {
+  	// on contraint la position pour que les éléments ne sortent pas du cadre
+    this.posX = constrain(this.posX, windowWidth*0.2, windowWidth*0.8);
+    this.posY = constrain(this.posY, windowHeight*0.2, windowHeight*0.8);
   }
 
 

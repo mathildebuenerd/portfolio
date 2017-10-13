@@ -97,7 +97,7 @@ h4 {
     /*justify-content: center;*/
     /*background-color: black;*/
     /*z-index: 99999;*/
-    width: 40px;
+    width: 30px;
     padding:10px 20px;
 
   }
@@ -107,9 +107,12 @@ h4 {
     color:transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    /*color: white;*/
     margin: 7px 0;
     transition: 0.5s ease;
+    font-size: 1.4em;
+    display: flex;
+	flex-direction: column;
+	align-content: center;
   }
 
   #links i:hover {
@@ -290,11 +293,11 @@ h4 {
   font-family: "Roboto", arial, sans-serif;
 }
 
-#pre-img-0 {background: url(img/newpretender.jpg) no-repeat -9999px -9999px; }
-#pre-img-1 {background: url(img/penombre.jpg) no-repeat -9999px -9999px; }
-#pre-img-2 {background: url(img/ultimatefaust.jpg) no-repeat -9999px -9999px; }
-#pre-img-3 {background: url(img/weasel.jpg) no-repeat -9999px -9999px; }
-#pre-img-4 {background: url(img/lesbeauxdiscours.jpg) no-repeat -9999px -9999px; }
-#pre-img-5 {background: url(img/hoteldunord.jpg) no-repeat -9999px -9999px; }
-#pre-img-6 {background: url(img/frontdeseditions.jpg) no-repeat -9999px -9999px; }
-#pre-img-7 {background: url(img/blackbox.jpg) no-repeat -9999px -9999px; }
+#pre-img-0 {background: url(en/img/newpretender.jpg) no-repeat -9999px -9999px; }
+#pre-img-1 {background: url(en/img/penombre.jpg) no-repeat -9999px -9999px; }
+#pre-img-2 {background: url(en/img/ultimatefaust.jpg) no-repeat -9999px -9999px; }
+#pre-img-3 {background: url(en/img/weasel.jpg) no-repeat -9999px -9999px; }
+#pre-img-4 {background: url(en/img/lesbeauxdiscours.jpg) no-repeat -9999px -9999px; }
+#pre-img-5 {background: url(en/img/hoteldunord.jpg) no-repeat -9999px -9999px; }
+#pre-img-6 {background: url(en/img/frontdeseditions.jpg) no-repeat -9999px -9999px; }
+#pre-img-7 {background: url(en/img/blackbox.jpg) no-repeat -9999px -9999px; }
