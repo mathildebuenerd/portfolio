@@ -305,3 +305,64 @@ h4 {
 #pre-img-5 {background: url(en/img/hoteldunord.jpg) no-repeat -9999px -9999px; }
 #pre-img-6 {background: url(en/img/frontdeseditions.jpg) no-repeat -9999px -9999px; }
 #pre-img-7 {background: url(en/img/blackbox.jpg) no-repeat -9999px -9999px; }
+
+
+#plusButton {
+  font-size: 30px;
+  position: absolute;
+  display: none;
+  top:50px;
+  left: 100px;
+  padding: 10px;
+  color: white;
+  background-color: black;
+  z-index: 100;
+}
+
+
+
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 50px;
+  }
+
+  canvas, .category, #halo, #name, .external-links:nth-child(n+2), #education {
+    display: none;
+  }
+
+  #lang p {
+    margin: 5px 0;
+  }
+
+  #bloc-links {
+    width: 50px;
+    padding: 0;
+    height: auto;
+    border-bottom: 1px solid #333333;
+  }
+
+  #infos {
+    top:0;
+    left: 50px;
+    max-width: 270px;
+  }
+
+  .project {
+    position: static !important;
+    margin-left: 70px;
+    display: block;
+  }
+
+  #shortDescr {
+    top:0;
+    left:50px;
+  }
+
+
+  #bloc-texte {
+    display: none;
+    left: 50px;
+    font-size: 1em;
+  }
+}

@@ -5,12 +5,27 @@
 	<!-- import data -->
   	<script language="javascript" type="text/javascript" src="projects.js"></script>
 
-  	<script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
-    <script language="javascript" type="text/javascript" src="../libraries/p5.dom.js"></script>
-    <script language="javascript" type="text/javascript" src="../sketch.js"></script>
+  	<script type="text/javascript" src="../libraries/p5.js"></script>
+    <script type="text/javascript" src="../libraries/p5.dom.js"></script>
+    <script type="text/javascript" src="../scripts/setupContent.js"></script>
+    <script type="text/javascript" src="../scripts/drawContent.js"></script>
+    <script type="text/javascript" src="../scripts/mobile.js"></script>
 
     <!-- Google analytics -->
-    <script language="javascript" type="text/javascript" src="../analytics.js"></script>
+    <script type="text/javascript" src="../analytics.js"></script>
+
+  <!-- meta -->
+  <meta name="description" content="(media) designer / creative coder based in Geneva" />
+  <meta name="author" content="Mathilde Buenerd">
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:type" content="portfolio" />
+  <meta property="og:title" content="Mathilde Buenerd / Portfolio" />
+  <meta property="og:description" content="(media) designer / creative coder based in Geneva" />
+  <meta property="og:url" content="http://alternative.mathildebuenerd.fr" />
+  <meta property="og:site_name" content="Mathilde Buenerd - Portfolio" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
 	<!-- jQuery UI draggable -->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -45,68 +60,70 @@
 
 <div id="bloc-links">
 
-<div id="links">
+  <div id="links">
 
-<!-- <div id="external-links"> -->
-<a class="external-links" href="https://twitter.com/mathildebuenerd" target="_blank">
-  <i class="fa fa-twitter fa-2x"></i>
-</a>
+    <!-- <div id="external-links"> -->
+    <a class="external-links" href="https://twitter.com/mathildebuenerd" target="_blank">
+      <i class="fa fa-twitter fa-2x"></i>
+    </a>
 
-<a class="external-links" href="https://github.com/mathildebuenerd" target="_blank">
-  <i class="fa fa-github fa-2x"></i>
-</a>
+    <a class="external-links" href="https://github.com/mathildebuenerd" target="_blank">
+      <i class="fa fa-github fa-2x"></i>
+    </a>
 
-<a class="external-links" href="https://vimeo.com/user35302474" target="_blank">
-  <i class="fa fa-vimeo fa-2x"></i>
-</a>
+    <a class="external-links" href="https://vimeo.com/user35302474" target="_blank">
+      <i class="fa fa-vimeo fa-2x"></i>
+    </a>
 
-<a class="external-links" href="http://www.mathildebuenerd.fr/blog/" target="_blank">
-  <i class="fa fa-pencil fa-2x"></i>
-</a>
+    <a class="external-links" href="http://www.mathildebuenerd.fr/blog/" target="_blank">
+      <i class="fa fa-pencil fa-2x"></i>
+    </a>
 
-<a class="external-links" href="https://www.linkedin.com/in/mathilde-buenerd-9b5585a1" target="_blank">
-  <i class="fa fa-linkedin fa-2x"></i>
-</a>
-<!-- </div> -->
+    <a class="external-links" href="https://www.linkedin.com/in/mathilde-buenerd-9b5585a1" target="_blank">
+      <i class="fa fa-linkedin fa-2x"></i>
+    </a>
+    <!-- </div> -->
 
-<div id="lang">
-  <p><a href="../index.html">FR</a></p>
-  <p>ENG</p>
-</div>
+    <div id="lang">
+      <p><a href="../index.html">FR</a></p>
+      <p>EN</p>
+    </div>
 
-<div id="contact">
-  <a href="mailto:mathilde.buenerd@gmail.com">
-    <i class="fa fa-envelope-o fa-2x"></i>
-  </a>
+    <div id="contact">
+      <a href="mailto:mathilde.buenerd@gmail.com">
+        <i class="fa fa-envelope-o fa-2x"></i>
+      </a>
 
-<!-- CV -->
-  <a target="blank" href="img/cv2016-12-en-mathildebuenerd.pdf">
-    <i class="fa fa-file-text-o fa-2x"></i>
-  </a>
+      <!-- CV -->
+      <a href="img/cv2016-12-en-mathildebuenerd.pdf">
+        <i class="fa fa-file-text-o fa-2x"></i>
+      </a>
 
-  <a onclick="openInfos();" href="#">
-    <i class="fa fa-question fa-2x"></i>
-  </a>
-</div>
+      <a onclick="openInfos();" href="#">
+        <i class="fa fa-question fa-2x"></i>
+      </a>
+    </div>
 
-<script type="text/javascript">
-  
-</script>
+    <script type="text/javascript">
 
-
-  <div id="name">
-    <h1>Mathilde Buenerd</h1>
-  </div>
+    </script>
 
 
-</div> <!-- links -->
+
+    <div id="name">
+      <h1>Mathilde Buenerd</h1>
+    </div>
+
+
+  </div> <!-- links -->
 
 </div> <!-- bloc-links -->
 
 
 <div id="projectDisplayed">
+  <div id="plusButton">+</div>
   <div id="bloc-image">
-    <img src="">
+    <!--<img src="img/newpretender.jpg">-->
 
     <!-- <div id="bloc-texte">
       <h4></h4>
@@ -116,10 +133,12 @@
 
   </div>
 
+
+
   <div id="bloc-texte" class="draggable">
-      <h4></h4>
-      <p></p>
-      <p></p>
+    <h4></h4>
+    <p></p>
+    <p></p>
   </div>
 </div>
 
@@ -130,18 +149,13 @@
 <div id="infos">
   <p id="croix" onclick="closeInfos();">[x]</p>
   <p>mathilde[dot]buenerd[at]gmail[dot]com</p>
-  <p>I am a graphic designer and artist, particularly interested in speculative design and the potential of digital technologies. I work as well with programming langages as with graphic design or writing. My practice embodies many different forms, like generative litterature, datavisualisation, games, web apps or more.
-<!--  The subjects I approach are verbal communication between humans and machines, how could the machines talk to us and how could we talk to them. --></p>
-<p id="education">2016-2018 | Master of Arts HES-SO in Design - or. Media Design - HEAD Geneva<br/>
-2014-2016 | Bachelor of Arts - Hypermedia workshop - Aix-en-Provence School of Fine Arts<br/>
-2012-2014 | Advanced Technician's Certificate in Graphic Design opt. Digital Media<br/>
-2009-2012 | Technological Baccalaureate in Applied Arts</p>
+  <p>I am something between a student/designer/artist/coder, exploring the connections between language, algorithms and social relationships. What will the algorithmic futures look like ? What happens when we bring together computational imagination and the unexpectedness of life ? How to add a little spice to the electronic products we use on a daily basis ? I strongly think that designers have something to say into the way we are envisioning our future.</p>
+
+  <p id="education">2016-2018 | Master of Arts HES-SO in Design - or. Media Design - HEAD Geneva<br/>
+    2014-2016 | Bachelor of Arts - Hypermedia workshop - Aix-en-Provence School of Fine Arts<br/>
+    2012-2014 | Advanced Technician's Certificate in Graphic Design opt. Digital Media<br/>
+    2009-2012 | Technological Baccalaureate in Applied Arts</p>
 </div>
-
-<!-- <div id="content"> -->
-  <div id="first"></div>
-<!-- </div> -->
-
 
 </body>
 
