@@ -93,8 +93,10 @@ function closeProject() {
   blocTexte.style.pointerEvents = "none";
   // imageProject.removeAttribute("style");
 
-    hideInfosProjects(); // pour l'affichage mobile on a une fonction spéciale comme il faut d'abord appuyer sur un + pour voir le texte
 
+    if (window.innerWidth < 768) {
+        hideInfosProjects(); // pour l'affichage mobile on a une fonction spéciale comme il faut d'abord appuyer sur un + pour voir le texte
+    }
 }
 
 function displayProject(e) {
