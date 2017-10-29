@@ -11,7 +11,7 @@ var counter = 0;
 var isDescrActive = false;
 var blocShortDescr;
 
- var halo;
+var halo;
 
 
 function setup() {
@@ -187,8 +187,6 @@ function draw() {
 	  blocShortDescr.style.top = mouseY + 30;
 	}
 
-
-
 }
 
 
@@ -258,8 +256,6 @@ function displayProject(e) {
   // on efface la petite description
   isDescrActive = false;
 
-
-
   // pour trouver le numéro du projet on slice son id qui est du type "project-x" pour ne récupérer que x
   var id = (e.target.id).slice(8);
 
@@ -313,7 +309,7 @@ function Project(_id, _name, _year, _shortDescr, _descr, _posX, _posY, _relatedT
   var displacement = 25;
 
  
- // crée les éléments et les rajoutend au DOM
+ // crée les éléments et les rajoutent au DOM
   Project.prototype.create = function() {
 
     var newBalise = document.createElement('h4');
@@ -322,9 +318,19 @@ function Project(_id, _name, _year, _shortDescr, _descr, _posX, _posY, _relatedT
     newBalise.style.left = this.posX;
     newBalise.style.top = this.posY;
     newBalise.innerHTML = this.name;
-    var firstElement = document.getElementById("first");
-    var contentElement = document.getElementById("content");
-    document.body.insertBefore(newBalise,firstElement); 
+
+    // on rajoute les infos du projet en display none
+    var infosProject = document.createElement('div');
+    infosProject.setAttribute('class', 'details');
+    var shortDescr = document.createElement('p');
+    shortDescr.innerHTML = this.shortDescription;
+    var description = document.createElement('p');
+    description.innerHTML = this.description;
+    infosProject.appendChild(shortDescr);
+    infosProject.appendChild(description);
+    newBalise.appendChild(infosProject);
+
+    document.body.appendChild(newBalise);
 
     // définit le style du trait
     fill(255);
@@ -342,7 +348,7 @@ function Project(_id, _name, _year, _shortDescr, _descr, _posX, _posY, _relatedT
     for (var i=0; i<this.relatedTo.length; i++) {
       for (var j=0; j<categoryName.length; j++) {
 
-        if (this.relatedTo[i] == categories[j].name) {
+        if (this.relatedTo[i] === categories[j].name) {
           // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
           ellipse(this.posX, this.posY, 3,3);
           // line(this.posNumberX, this.posNumberY, categories[j].posX, categories[j].posY);
@@ -417,9 +423,8 @@ function Category(_id, _name, _posX, _posY) {
     newBalise.style.left = this.posX;
     newBalise.style.top = this.posY;
     newBalise.innerHTML = this.name;
-    var firstElement = document.getElementById("first");
     var contentElement = document.getElementById("content");
-    document.body.insertBefore(newBalise,firstElement);
+    document.body.appendChild(newBalise);
   }
 
   Category.prototype.constrainCategory = function() {

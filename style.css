@@ -69,6 +69,10 @@ h4 {
     padding-bottom: 5px;
   }
 
+  .details {
+    display: none;
+  }
+
   #first {
     display: none;
   }
